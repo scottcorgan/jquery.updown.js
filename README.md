@@ -64,6 +64,7 @@ $('#list').updown({
 
 ## Todo
 
+* Option for keyup or keydown
 * Detect if index is different than selected item. Adjust accordingly.
 * Add callback for when on item highlight change
 * Add support for custom keyboard shortcuts to navigate the list
