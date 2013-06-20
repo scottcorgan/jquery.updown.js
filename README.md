@@ -17,6 +17,9 @@ bower install updown --save
 
 ```HTML
 
+<!-- Include script -->
+<script src="path/to/jquery.updown.js"></script>
+
 <!-- Trigger -->
 <input type="text" id="list-search">
 
