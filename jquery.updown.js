@@ -39,21 +39,13 @@
       this._currentKeyIdx = -1;
     },
     
-    _getVisibleItems: function () {
-      return this.$element.find(this.options.item + ':visible');
+    getListItems: function () {
+      return this.$element.find(this.options.item);
     },
     
-    _getItemByIndex: function (idx) {
-      return this._getVisibleItems().eq(idx);
-    },
-    
-    _getNumberOfVisibleItems: function () {
-      return this._getVisibleItems().length;
-    },
-    
-    _toggleItemAsSelectedByIdx: function (itemIdx, isSelected) {
+    toggleItemAsSelectedByIdx: function (itemIdx, isSelected) {
       if (itemIdx !== undefined) {
-        return this._getItemByIndex(itemIdx).toggleClass(this.options.highlightClass, isSelected);
+        return this.getListItems().eq(itemIdx).toggleClass(this.options.highlightClass, isSelected);
       }
       
       return $();
@@ -63,37 +55,38 @@
       var shouldNavigate = false;
       var prevIdx;
       
-      if (this._isDownKey(e) && this._hasNextItem()) {
+      if (this._isDownKey(e) && this.hasNextItem()) {
         this._incrementCurrentKeyIdx();
         shouldNavigate = true;
         prevIdx = (this._currentKeyIdx > 0) ? this._currentKeyIdx - 1 : undefined;
       }
       
-      if (this._isUpKey(e) && this._hasPreviousItem()) {
+      if (this._isUpKey(e) && this.hasPreviousItem()) {
         this._decrementCurrentKeyIdx();
         shouldNavigate = true;
         prevIdx = this._currentKeyIdx + 1;
       }
       
       if (shouldNavigate) {
-        this._currentKeyNavSelected = this._toggleItemAsSelectedByIdx(this._currentKeyIdx, true);
-        this._toggleItemAsSelectedByIdx(prevIdx, false);
+        this.$element.find('.' + this.options.highlightClass).removeClass(this.options.highlightClass);
+        this._currentKeyNavSelected = this.toggleItemAsSelectedByIdx(this._currentKeyIdx, true);
+        this.toggleItemAsSelectedByIdx(prevIdx, false);
       }
       else{
         this.reset();
       }
     },
     
-    _hasNextItem: function () {
-      return this._currentKeyIdx < this._getNumberOfVisibleItems();
+    hasNextItem: function () {
+      return this._currentKeyIdx < this.getListItems().length;
     },
     
-    _hasPreviousItem: function () {
+    hasPreviousItem: function () {
       return this._currentKeyIdx - 1 >= 0;
     },
     
     _incrementCurrentKeyIdx: function () {
-      if (this._currentKeyIdx + 1 < this._getNumberOfVisibleItems()) {
+      if (this._currentKeyIdx + 1 < this.getListItems().length) {
         this._currentKeyIdx += 1;
       }
     },

@@ -5,7 +5,7 @@ jQuery plugin for keyboard navigating lists with up/down arrow keys. Select the 
 
 [View Demo](http://codepen.io/scottcorgan/pen/mzdhA)
 
-Current Version: **0.2.1**
+Current Version: **0.2.5**
 
 ## Install
 
@@ -67,6 +67,11 @@ $('#list').updown({
 * Add support for custom keyboard shortcuts to navigate the list
 
 ## Changelog
+
+**0.2.5**
+* FIXED: Remove highlight class from all elements before switching to the next/previous
+* FIXED: Don't envorce only ` :visible ` elements
+* Optimized list selection
 
 **0.2.1**
 * FIXED: namespaced class ` ud-selected ` for highlighted list item
