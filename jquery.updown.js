@@ -5,7 +5,7 @@
       defaults = {
         trigger: null,
         item: null,
-        hightlightClass: 'ud-selected',
+        highlightClass: 'ud-selected',
         onSelect: function () {}
       };
 
@@ -53,7 +53,7 @@
     
     _toggleItemAsSelectedByIdx: function (itemIdx, isSelected) {
       if (itemIdx !== undefined) {
-        return this._getItemByIndex(itemIdx).toggleClass(this.options.hightlightClass, isSelected);
+        return this._getItemByIndex(itemIdx).toggleClass(this.options.highlightClass, isSelected);
       }
       
       return $();
@@ -140,7 +140,7 @@
     
     reset: function () {
       if (this._currentKeyNavSelected) {
-        this._currentKeyNavSelected.removeClass(this.options.hightlightClass);
+        this._currentKeyNavSelected.removeClass(this.options.highlightClass);
       }
       
       this._currentKeyNavSelected = null;
