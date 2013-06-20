@@ -3,7 +3,7 @@ jquery.updown.js
 
 jQuery plugin for keyboard navigating lists
 
-Current Version: **0.2.0**
+Current Version: **0.2.1**
 
 ## Install
 
