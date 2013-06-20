@@ -6,6 +6,7 @@
         trigger: null,
         item: null,
         highlightClass: 'ud-selected',
+        startingIndex: 0,
         onSelect: function () {}
       };
 
@@ -22,6 +23,7 @@
 
   Plugin.prototype = {
     init: function() {
+      this._resetCurrentyKeyIdx();
       this.$trigger = $(this.options.trigger);
       this.$element = $(this.element);
       
@@ -32,11 +34,10 @@
       }, this));
     },
     
-    _currentKeyIdx: -1,
     _currentKeyNavSelected: null,
     
     _resetCurrentyKeyIdx: function () {
-      this._currentKeyIdx = -1;
+      this._currentKeyIdx = this.options.startingIndex - 1;
     },
     
     getListItems: function () {
@@ -115,7 +116,8 @@
     
     _keySearchSelect: function (e) {
       if (this._isEnterKey(e)) {
-        this.options.onSelect.call(this._currentKeyNavSelected,  $(this._currentKeyNavSelected));
+        var $element = this.getListItems().eq(this._currentKeyIdx);
+        this.options.onSelect.call($element,  $element);
         this._resetTrigger();
       }
     },

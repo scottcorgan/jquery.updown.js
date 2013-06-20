@@ -5,7 +5,7 @@ jQuery plugin for keyboard navigating lists with up/down arrow keys. Select the 
 
 [View Demo](http://codepen.io/scottcorgan/pen/mzdhA)
 
-Current Version: **0.2.5**
+Current Version: **0.2.6**
 
 ## Install
 
@@ -46,6 +46,7 @@ $('#list').updown({
   trigger: '#list-search',
   item: '.list-item',
   highlightClass:  'key-highlight',
+  startingIndex: 0,
   onSelect: function ($element) {
     // This is triggered when you hit the Enter key
   }
@@ -55,10 +56,11 @@ $('#list').updown({
 
 ## Options
 
-* ` trigger ` - the element to active the up/down arrows and enter key events for navigating the list
-* ` item ` - the selector for the items to navigate. A class of ` ud-selected ` is added to the item by default when item is hightlighted (for styling purposes).
-* ` hightlightClass ` - classname to add to list item element when it is highlighted. This overwrites the ` ud-selected ` class name.
-* ` onSelect ` - callback function when the enter key is pressed to select that list item. Passes the element as a jQuery object to the callback.
+* ` trigger ` (required) - the element to active the up/down arrows and enter key events for navigating the list
+* ` item ` (required) - the selector for the items to navigate. A class of ` ud-selected ` is added to the item by default when item is hightlighted (for styling purposes).
+* ` hightlightClass ` (optional) - classname to add to list item element when it is highlighted. This overwrites the ` ud-selected ` class name.
+* ` startingIndex ` (optional) - Index of list item to start when navigating throught the list. Default is ` 0 `
+* ` onSelect ` (optional) - callback function when the enter key is pressed to select that list item. Passes the element as a jQuery object to the callback.
 
 ## Todo
 
@@ -67,6 +69,10 @@ $('#list').updown({
 * Add support for custom keyboard shortcuts to navigate the list
 
 ## Changelog
+
+**0.2.6**
+* NEW: Optionally set the index of the list item to start at when navigating
+* More performance optimizations
 
 **0.2.5**
 * FIXED: Remove highlight class from all elements before switching to the next/previous
