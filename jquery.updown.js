@@ -1,7 +1,7 @@
 ;(function ( $, window, document, undefined ) {
 
   // Create the defaults once
-  var pluginName = "navikey",
+  var pluginName = "updown",
       defaults = {
         trigger: null,
         item: null,
@@ -25,7 +25,7 @@
       this.$trigger = $(this.options.trigger);
       this.$element = $(this.element);
       
-      this.$trigger.keyup($.proxy(function (e) {
+      this.$trigger.on('keyup', $.proxy(function (e) {
         this._keySearchSelect(e);
         this._keySearchBlur(e);
         this._keyNavigate(e);
@@ -117,7 +117,7 @@
     },
     
     _isEscapeKey: function (e) {
-      return e.keyCode === 27
+      return e.keyCode === 27;
     },
     
     _keySearchSelect: function (e) {
@@ -145,6 +145,8 @@
       
       this._currentKeyNavSelected = null;
       this._resetCurrentyKeyIdx();
+      
+      return this;
     }
   };
   
@@ -156,5 +158,5 @@
         new Plugin( this, options ));
       }
     });
-  }
+  };
 })( jQuery, window, document );

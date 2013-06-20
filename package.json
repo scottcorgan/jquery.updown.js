@@ -1,0 +1,25 @@
+{
+  "name": "jquery.updown.js",
+  "version": "0.2.0",
+  "description": "jQuery plugin for keyboard navigating lists",
+  "main": "jquery.updown.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottcorgan/jquery.updown.js.git"
+  },
+  "author": "Scott Corgan",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "60e3f02e786b5ed716973b374f549f065ad503b7",
+  "bugs": {
+    "url": "https://github.com/scottcorgan/jquery.updown.js/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-uglify": "~0.2.2"
+  }
+}
