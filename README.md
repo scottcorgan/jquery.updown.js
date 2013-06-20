@@ -1,7 +1,9 @@
 jquery.updown.js
 ================
 
-jQuery plugin for keyboard navigating lists
+jQuery plugin for keyboard navigating lists with up/down arrow keys. Select the item with the enter key.
+
+[View Demo](http://codepen.io/scottcorgan/pen/mzdhA)
 
 Current Version: **0.2.1**
 
@@ -43,7 +45,7 @@ bower install updown --save
 $('#list').updown({
   trigger: '#list-search',
   item: '.list-item',
-  highlightClass:  'key-hightlight',
+  highlightClass:  'key-highlight',
   onSelect: function ($element) {
     // This is triggered when you hit the Enter key
   }
